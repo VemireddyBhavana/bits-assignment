@@ -1,0 +1,26 @@
+<!--
+    Student ID: 2024EB01570
+    Course: Programming in Mobile Devices - Staff Graded Assignment 2
+-->
+<resources>
+    <string name="app_name">Campus Notice Board</string>
+    <string name="student_id_banner">Student ID: 2024EB01570</string>
+    <string name="register_title">User Registration</string>
+    <string name="login_title">User Login</string>
+    <string name="welcome_title">Campus Notice Board</string>
+    <string name="email_hint">Enter Email Address</string>
+    <string name="password_hint">Enter Password</string>
+    <string name="role_select_prompt">Select Role:</string>
+    <string name="btn_register">Register</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_logout">Logout</string>
+    <string name="btn_publish">Publish Notice</string>
+    <string name="link_already_have_account">Already have an account? Login here</string>
+    <string name="link_need_account">Don\'t have an account? Register here</string>
+    <string name="notice_title_hint">Notice Title</string>
+    <string name="notice_desc_hint">Notice Description</string>
+    <string name="publish_not_allowed_msg">Role: Student (Read-Only Access. Publishing is restricted to Staff members.)</string>
+    <string name="publish_allowed_msg">Role: Staff (Publishing Granted)</string>
+    <string name="notices_section_header">Published Campus Notices</string>
+    <string name="no_internet_msg">No Internet Connection! Please connect to the internet and try again.</string>
+</resources>

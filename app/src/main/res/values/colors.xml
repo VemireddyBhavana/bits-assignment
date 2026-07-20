@@ -1,0 +1,20 @@
+<!--
+    Student ID: 2024EB01570
+    Course: Programming in Mobile Devices - Staff Graded Assignment 2
+-->
+<resources>
+    <color name="primary">#1E3A8A</color>
+    <color name="primary_dark">#0F172A</color>
+    <color name="accent">#3B82F6</color>
+    <color name="background">#F8FAFC</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="text_light">#64748B</color>
+    <color name="staff_badge">#059669</color>
+    <color name="student_badge">#D97706</color>
+    <color name="banner_bg">#1E293B</color>
+    <color name="banner_text">#F8FAFC</color>
+    <color name="button_color">#2563EB</color>
+    <color name="logout_button">#DC2626</color>
+</resources>

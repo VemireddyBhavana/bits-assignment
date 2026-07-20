@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Notice Board (Java Edition) - Screenshots Render</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 8px;
+            color: #60a5fa;
+        }
+
+        p.subtitle {
+            margin-bottom: 40px;
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        .screen-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 40px;
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        .phone-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .phone-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .phone-frame {
+            width: 360px;
+            height: 720px;
+            background: #f8fafc;
+            border-radius: 36px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 0 10px #1e293b;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 4px solid #334155;
+        }
+
+        /* Android Status Bar */
+        .status-bar {
+            height: 28px;
+            background: #0f172a;
+            color: #94a3b8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Student ID Top Header Banner */
+        .student-id-banner {
+            background: #1e293b;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #3b82f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .student-id-badge {
+            background: #2563eb;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .screen-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            color: #0f172a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-logo-area {
+            text-align: center;
+            margin: 10px 0 20px 0;
+        }
+
+        .app-logo {
+            width: 64px;
+            height: 64px;
+            background: #1e3a8a;
+            border-radius: 16px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .app-title {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .screen-subtitle {
+            color: #475569;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .input-box {
+            width: 100%;
+            height: 46px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 0 14px;
+            font-size: 14px;
+            color: #0f172a;
+            background: #ffffff;
+        }
+
+        .textarea-box {
+            width: 100%;
+            height: 90px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 14px;
+            color: #0f172a;
+            background: #ffffff;
+            resize: none;
+        }
+
+        .select-box {
+            width: 100%;
+            height: 46px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 0 14px;
+            font-size: 14px;
+            color: #0f172a;
+            background: #ffffff url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%20475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right 12px center;
+            background-size: 16px;
+            appearance: none;
+        }
+
+        .btn-primary {
+            width: 100%;
+            height: 48px;
+            background: #2563eb;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-logout {
+            background: #dc2626;
+            color: #fff;
+            border: none;
+            width: 100%;
+            height: 48px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: 12px;
+        }
+
+        .link-text {
+            text-align: center;
+            color: #2563eb;
+            font-size: 14px;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        /* Notice Card */
+        .notice-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+
+        .notice-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 4px;
+        }
+
+        .notice-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .notice-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #64748b;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 6px;
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .role-badge.staff {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .role-badge.student {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Toast Simulation */
+        .toast-popup {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.92);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+            z-index: 100;
+        }
+
+        /* Notification Shade Simulation */
+        .notification-shade {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+        }
+
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+
+        .notification-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .notification-body {
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-top: 2px;
+        }
+
+        .notification-sub {
+            font-size: 11px;
+            color: #38bdf8;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Campus Notice Board App (Java Edition)</h1>
+    <p class="subtitle">Assignment 2 Deliverables - Student ID: 2024EB01570</p>
+
+    <div class="screen-container">
+
+        <!-- SCREEN 1: RegisterActivity.java -->
+        <div class="phone-wrapper" id="screen-register">
+            <div class="phone-title">1. RegisterActivity.java</div>
+            <div class="phone-frame">
+                <div class="status-bar">
+                    <span>09:41</span>
+                    <span>📶 🛜 🔋 100%</span>
+                </div>
+                <div class="student-id-banner">
+                    Student ID: <span class="student-id-badge">2024EB01570</span>
+                </div>
+                <div class="screen-content">
+                    <div class="app-logo-area">
+                        <div class="app-logo">📋</div>
+                        <div class="app-title">Campus Notice Board</div>
+                        <div class="screen-subtitle">User Registration</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="input-box" value="staff.member@campus.edu" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="input-box" value="••••••••••••" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Select Role</label>
+                        <select class="select-box" disabled>
+                            <option selected>Staff</option>
+                            <option>Student</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary">Register</button>
+                    <div class="link-text">Already have an account? Login here</div>
+                </div>
+                <div class="toast-popup">Account Created Successfully.</div>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: LoginActivity.java -->
+        <div class="phone-wrapper" id="screen-login">
+            <div class="phone-title">2. LoginActivity.java</div>
+            <div class="phone-frame">
+                <div class="status-bar">
+                    <span>09:42</span>
+                    <span>📶 🛜 🔋 99%</span>
+                </div>
+                <div class="student-id-banner">
+                    Student ID: <span class="student-id-badge">2024EB01570</span>
+                </div>
+                <div class="screen-content">
+                    <div class="app-logo-area">
+                        <div class="app-logo">📋</div>
+                        <div class="app-title">Campus Notice Board</div>
+                        <div class="screen-subtitle">User Login</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="input-box" value="staff.member@campus.edu" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="input-box" value="••••••••••••" readonly>
+                    </div>
+                    <button class="btn-primary">Login</button>
+                    <div class="link-text">Don't have an account? Register here</div>
+                </div>
+                <div class="toast-popup">Login Successful</div>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: WelcomeActivity.java -->
+        <div class="phone-wrapper" id="screen-welcome">
+            <div class="phone-title">3. WelcomeActivity.java</div>
+            <div class="phone-frame">
+                <div class="status-bar">
+                    <span>09:43</span>
+                    <span>📶 🛜 🔋 98%</span>
+                </div>
+                <div class="student-id-banner">
+                    Student ID: <span class="student-id-badge">2024EB01570</span>
+                </div>
+                <div class="screen-content">
+                    <div class="app-logo-area" style="margin-top: 20px;">
+                        <div class="app-logo">📌</div>
+                        <div class="app-title">Campus Notice Board</div>
+                    </div>
+
+                    <div style="background: #1e3a8a; color: #fff; padding: 24px; border-radius: 16px; text-align: center; margin: 24px 0;">
+                        <div style="font-size: 18px; font-weight: 700;">Welcome, staff.member@campus.edu</div>
+                        <div style="font-size: 16px; font-weight: 700; margin-top: 8px; color: #93c5fd;">Role: Staff</div>
+                    </div>
+
+                    <button class="btn-primary" style="height: 52px; font-size: 15px;">View &amp; Manage Campus Notices</button>
+                    <button class="btn-logout">Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 4: NoticeActivity.java (Staff View) -->
+        <div class="phone-wrapper" id="screen-notice-staff">
+            <div class="phone-title">4. NoticeActivity.java (Staff View)</div>
+            <div class="phone-frame">
+                <div class="status-bar">
+                    <span>09:44</span>
+                    <span>📶 🛜 🔋 97%</span>
+                </div>
+                <div class="student-id-banner">
+                    Student ID: <span class="student-id-badge">2024EB01570</span>
+                </div>
+                <div class="screen-content">
+                    <div style="background: #fff; padding: 14px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 16px;">
+                        <div style="font-weight: 700; color: #1e3a8a; font-size: 16px; margin-bottom: 4px;">Publish New Campus Notice</div>
+                        <div class="role-badge staff">Role: Staff (Publishing Allowed)</div>
+
+                        <div class="form-group" style="margin-top: 8px;">
+                            <label class="form-label">Notice Title</label>
+                            <input type="text" class="input-box" value="Library Extended Hours during Exams" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Notice Description</label>
+                            <textarea class="textarea-box" readonly>The Central Library will remain open 24/7 during the upcoming exam period from July 22 to August 05.</textarea>
+                        </div>
+
+                        <button class="btn-primary">Publish Notice</button>
+                    </div>
+                </div>
+                <div class="toast-popup">Notice Published Successfully.</div>
+            </div>
+        </div>
+
+        <!-- SCREEN 5: NoticeActivity.java (Student View Feed) -->
+        <div class="phone-wrapper" id="screen-notice-student">
+            <div class="phone-title">5. NoticeActivity.java (RecyclerView Feed)</div>
+            <div class="phone-frame">
+                <div class="status-bar">
+                    <span>09:45</span>
+                    <span>📶 🛜 🔋 96%</span>
+                </div>
+                <div class="student-id-banner">
+                    Student ID: <span class="student-id-badge">2024EB01570</span>
+                </div>
+                <div class="screen-content">
+                    <div style="background: #fef3c7; color: #92400e; padding: 10px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; margin-bottom: 12px;">
+                        ℹ️ Student Access: Read-only mode. Publishing is restricted to Staff.
+                    </div>
+
+                    <div style="font-weight: 700; color: #1e3a8a; font-size: 16px; margin-bottom: 12px;">Published Campus Notices</div>
+
+                    <div class="notice-card">
+                        <div class="notice-title">Library Extended Hours during Exams</div>
+                        <div class="notice-desc">The Central Library will remain open 24/7 during the upcoming exam period from July 22 to August 05.</div>
+                        <div class="notice-meta">
+                            <span>Created By: staff.member@campus.edu</span>
+                            <span>2026-07-20 09:44 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="notice-card">
+                        <div class="notice-title">Mid-Semester Exam Schedule Released</div>
+                        <div class="notice-desc">The timetable for all B.Tech / M.Tech mid-semester examinations has been updated on the portal. Please verify your course codes.</div>
+                        <div class="notice-meta">
+                            <span>Created By: staff.member@campus.edu</span>
+                            <span>2026-07-20 09:30 AM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 6: NotificationService.java -->
+        <div class="phone-wrapper" id="screen-notification">
+            <div class="phone-title">6. NotificationService.java</div>
+            <div class="phone-frame">
+                <div class="status-bar">
+                    <span>09:46</span>
+                    <span>📶 🛜 🔋 95%</span>
+                </div>
+                <div class="student-id-banner">
+                    Student ID: <span class="student-id-badge">2024EB01570</span>
+                </div>
+                <div class="screen-content" style="background: #0f172a; color: #fff;">
+                    <div style="font-size: 13px; color: #94a3b8; margin-top: 10px;">Android Notification Shade</div>
+                    
+                    <div class="notification-shade">
+                        <div class="notification-header">
+                            <span>📋 CAMPUS NOTICE BOARD • Now</span>
+                            <span>🔔</span>
+                        </div>
+                        <div class="notification-title">Campus Notice Board</div>
+                        <div class="notification-body">Check the Campus Notice Board for new updates!</div>
+                        <div class="notification-sub">Student ID: 2024EB01570 • Periodic Background NotificationService</div>
+                    </div>
+
+                    <div style="margin-top: 40px; text-align: center; color: #64748b;">
+                        <div style="font-size: 48px;">📲</div>
+                        <p style="margin-top: 10px; font-size: 14px;">Background Android NotificationService running periodically.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

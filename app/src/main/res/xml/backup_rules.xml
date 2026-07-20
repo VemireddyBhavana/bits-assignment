@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Student ID: 2024EB01570 -->
+<full-backup-content>
+    <include domain="sharedpref" path="." />
+</full-backup-content>

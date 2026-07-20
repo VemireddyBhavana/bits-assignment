@@ -1,0 +1,10 @@
+<!--
+    Student ID: 2024EB01570
+    Course: Programming in Mobile Devices - Staff Graded Assignment 2
+-->
+<resources>
+    <string-array name="role_options">
+        <item>Staff</item>
+        <item>Student</item>
+    </string-array>
+</resources>
