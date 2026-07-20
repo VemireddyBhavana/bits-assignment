@@ -10,14 +10,15 @@
 ## 📌 Deliverables Included
 
 1. **Source Code**:
-   - `RegisterActivity.kt` & `activity_register.xml` (User Registration with Role Selection & Firebase Auth)
-   - `LoginActivity.kt` & `activity_login.xml` (User Login with SharedPreferences Session Storage)
-   - `WelcomeActivity.kt` & `activity_welcome.xml` (Dashboard with Role-based notice creation & realtime feed)
-   - `Notice.kt` (Data model for notice items)
-   - `NoticeAdapter.kt` & `item_notice.xml` (RecyclerView adapter for displaying published notices)
-   - `UserSessionManager.kt` (SharedPreferences wrapper for Email & Role persistence)
-   - `NetworkUtils.kt` (Network connectivity check utility)
-   - `NoticeNotificationService.kt` (Background Android Service for periodic system notifications)
+   - `RegisterActivity.java` & `activity_register.xml` (User Registration with Role Selection & Firebase Auth)
+   - `LoginActivity.java` & `activity_login.xml` (User Login with SharedPreferences Session Storage)
+   - `WelcomeActivity.java` & `activity_welcome.xml` (Dashboard displaying User Info, Role, Student ID, and Logout)
+   - `NoticeActivity.java` & `activity_notice.xml` (Notice Publishing and Realtime Feed with Role-Based Access Control)
+   - `Notice.java` (Data model for notice items)
+   - `NoticeAdapter.java` & `item_notice.xml` (RecyclerView adapter for displaying published notices)
+   - `SharedPreferencesHelper.java` (SharedPreferences wrapper for Email & Role session persistence)
+   - `NetworkHelper.java` (Network connectivity check utility)
+   - `NotificationService.java` (Background Android Service for periodic system notifications)
    - `AndroidManifest.xml`, Gradle build configurations, and `google-services.json`.
 
 2. **Screenshots** (All displaying Student ID `2024EB01570` prominently):

@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "123456789012",
+    "project_number": "735769089103",
+    "firebase_url": "https://campus-noticeboard-2024eb01570-default-rtdb.firebaseio.com",
     "project_id": "campus-noticeboard-2024eb01570",
-    "storage_bucket": "campus-noticeboard-2024eb01570.appspot.com"
+    "storage_bucket": "campus-noticeboard-2024eb01570.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:abc123def4567890",
+        "mobilesdk_app_id": "1:735769089103:android:3508f1177a8b2f9ceac63a",
         "android_client_info": {
           "package_name": "com.campus.noticeboard"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDummyKeyForCampusNoticeBoard2024EB01570"
+          "current_key": "AIzaSyBHyXH_bCR9G6F_GUDTQhRoYP4veIBAnXk"
         }
       ],
       "services": {

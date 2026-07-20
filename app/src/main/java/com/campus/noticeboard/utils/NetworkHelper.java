@@ -32,7 +32,7 @@ public class NetworkHelper {
                      capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
                      capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET));
         } else {
-            @SuppressWarning("deprecation")
+            @SuppressWarnings("deprecation")
             android.net.NetworkInfo netInfo = cm.getActiveNetworkInfo();
             return netInfo != null && netInfo.isConnected();
         }

@@ -23,7 +23,7 @@
             android:id="@+id/tvNoticeTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notice Title"
+            tools:text="Notice Title"
             android:textColor="@color/primary"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -33,7 +33,7 @@
             android:id="@+id/tvNoticeDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notice description content goes here..."
+            tools:text="Notice description content goes here..."
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
             android:lineSpacingExtra="2dp"
@@ -56,7 +56,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="By: staff@campus.edu"
+                tools:text="By: staff@campus.edu"
                 android:textColor="@color/text_light"
                 android:textSize="12sp"
                 android:textStyle="italic" />
@@ -65,7 +65,7 @@
                 android:id="@+id/tvTimestamp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2026-07-20 11:30 AM"
+                tools:text="2026-07-20 11:30 AM"
                 android:textColor="@color/text_light"
                 android:textSize="12sp" />
         </LinearLayout>
